@@ -1,8 +1,5 @@
-
-
-
-import { INestApplication } from '@nestjs/common';
-import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import { INestApplication } from "@nestjs/common";
+import { SwaggerModule, DocumentBuilder } from "@nestjs/swagger";
 import {
   SWAGGER_API_ROOT,
   SWAGGER_API_NAME,
@@ -10,9 +7,8 @@ import {
   SWAGGER_API_CURRENT_VERSION,
   SWAGGER_API_AUTH_NAME,
   SWAGGER_API_AUTH_LOCATION,
-} from './constants';
-import { SwaggerDocumentOptions } from './option.type';
-
+} from "./constants";
+import { SwaggerDocumentOptions } from "./option.type";
 
 /**
  * @export
@@ -23,23 +19,18 @@ import { SwaggerDocumentOptions } from './option.type';
  */
 
 export function setupSwagger(app: INestApplication): void {
-
   const config = new DocumentBuilder()
     .setTitle(SWAGGER_API_NAME)
     .setDescription(SWAGGER_API_DESCRIPTION)
     .setVersion(SWAGGER_API_CURRENT_VERSION)
     .setBasePath(SWAGGER_API_ROOT)
-    .setContact('Dashr', 'https://dashr.io', 'rscheele404@gmail.com')
+    .setContact("Dashr", "https://dashr.io", "rscheele404@gmail.com")
 
     .build();
 
-
-    const options: SwaggerDocumentOptions =  {
-      operationIdFactory: (
-        controllerKey: string,
-        methodKey: string
-      ) => methodKey
-    };
-    const document = SwaggerModule.createDocument(app, config, options);
+  const options: SwaggerDocumentOptions = {
+    operationIdFactory: (controllerKey: string, methodKey: string) => methodKey,
+  };
+  const document = SwaggerModule.createDocument(app, config, options);
   SwaggerModule.setup(SWAGGER_API_ROOT, app, document);
 }
