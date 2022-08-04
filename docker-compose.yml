@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  dashr-api:
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    image: rscheele3214/dashr-api:latest
+    depends_on:
+      - database
+    restart: always
+    volumes:
+      - .:/dashr
+    environment:
+      - DB_URI=postgres://postgres:postgres@postgres:5432/postgres
+      - PORT=3000
+
+
+  postgres:
+    image: postgres:10.4
+    environment: 
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - 5432:5432
+
+
+
+
+    
+ 
