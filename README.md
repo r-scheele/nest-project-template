@@ -1,8 +1,7 @@
-# Dashr REST API 🇳🇬
+# NestJS boilerplate for TypeScript and TypeORM
 
 ## Description
 
-A Fintech API for Dashr.
 
 ## Table of Contents
 
@@ -71,7 +70,7 @@ Create a postgres database with psql and create a user with the name 'postgres'.
 ```bash
 $ psql -U postgres
 
-postgres=# CREATE DATABASE dashr WITH OWNER = postgres ENCODING = 'UTF8' LC_COLLATE = 'C' LC_CTYPE = 'C' TABLESPACE = pg_default CONNECTION LIMIT = -1;
+postgres=# CREATE DATABASE project-database WITH OWNER = postgres ENCODING = 'UTF8' LC_COLLATE = 'C' LC_CTYPE = 'C' TABLESPACE = pg_default CONNECTION LIMIT = -1;
 ```
 
 ### - To run the application as a docker container
